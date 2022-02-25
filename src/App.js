@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { signWithGoogle } from "./firebase-config";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>The app component</h1>
+      <button className=" btn btn-primary" onClick={signWithGoogle}>
+        Sign In With Google
+      </button>
+      <div className="container">
+        <h1>{localStorage.getItem("name")}</h1>
+        <h1>{localStorage.getItem("email")}</h1>
+        <img src={localStorage.getItem("profilePic")} alt="myImage" />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
